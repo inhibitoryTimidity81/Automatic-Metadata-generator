@@ -1,7 +1,7 @@
 
 # Automatic Metadata Generator
 
-### 🔧 A model to automatically generate metadata for unstructured documents  
+###  A model to automatically generate metadata for unstructured documents  
 **Built during MaRS Open Projects 2025**
 
 ---
@@ -19,7 +19,7 @@ This project aims to build a system that **automatically generates metadata from
 
 ---
 
-## 🎯 Output Features
+##  Output Features
 
 When a file is processed, the system provides:
 
@@ -74,28 +74,15 @@ The project is structured around **three main modules**:
 
 ---
 
-## Usage
+# Major Function Description
+1. Title Extraction: This function uses certain strategies to extract the title. It searches for capital sentances, all capital words, numbered titles etc. to identify the title. pattern is matched by 're'.
+2. Date Extraction: date pattern is matched. any string matching the pattern is identified
+3. Keyword Extraction: The string of length more or equal to 4 and excluding the words which do not carry significant meaning like 'a', 'an', 'the' etc. are selected.
+4. Generating Summary: It breaks sentences on ., !, ? etc and filters out the sentences having less than 30 words and then joins sentences.
+5. Emails, Phone no. are also matched according to identified patterns.
+   
+Then the document is classified according to the extracted keywords.
+Next functions are majorly for viewing the OCR and the metadata.
+The model is flexible, in the codes, some lines can be uncommented to print the extracted text as well.
 
-### 1. Extract Text Only
 
-```python
-from main import universal_ocr
-
-text = universal_ocr("example.pdf", show_images=False, save_results=True)
-print(text)
-
-2. Extract Text + Metadata
-python
-Copy
-Edit
-from main import universal_ocr_with_metadata, print_metadata
-
-text, metadata = universal_ocr_with_metadata("example.docx")
-print_metadata(metadata)
-
- Sample Output
-ocr_results/
-├── page_001_processed.png
-├── page_001_text.txt
-├── ...
-├── complete_extracted_text.txt
