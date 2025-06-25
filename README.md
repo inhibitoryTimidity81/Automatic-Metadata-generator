@@ -40,6 +40,19 @@ When a file is processed, the system provides:
 ---
 
 ## How It Works
+# Requirements
+Django==5.0.0
+opencv-python==4.9.0.80
+numpy>=1.26.0
+matplotlib>=3.8.0
+scipy>=1.11.4
+scikit-image>=0.22.0
+pytesseract==0.3.10
+pdf2image==1.16.3
+PyMuPDF==1.23.5
+python-docx==0.8.11
+Pillow>=10.0.0
+
 
 The project is structured around **three main modules**:
 
